@@ -1,0 +1,44 @@
+name: path_provider_master
+description: "Flutter plugin for accessing various system paths across all platforms with support for public paths"
+version: 1.0.0
+homepage: "https://github.com/SwanFlutter/path_provider_master"
+
+environment:
+  sdk: ^3.10.8
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  web: ^1.1.1
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+
+
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.example.path_provider_master
+        pluginClass: PathProviderMasterPlugin
+      ios:
+        pluginClass: PathProviderMasterPlugin
+      linux:
+        pluginClass: PathProviderMasterPlugin
+      macos:
+        pluginClass: PathProviderMasterPlugin
+      windows:
+        pluginClass: PathProviderMasterPluginCApi
+      web:
+        pluginClass: PathProviderMasterWeb
+        fileName: path_provider_master_web.dart
+
+ 

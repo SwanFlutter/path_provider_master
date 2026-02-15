@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+import 'package:path_provider_master/path_provider_master.dart';
+
+/// مثال ساده استفاده از Path Provider Master
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // دریافت مسیر دایرکتوری موقت
+  final tempDir = await PathProviderMaster.getTemporaryDirectory();
+  print('📁 Temporary Directory: ${tempDir?.path}');
+
+  // دریافت مسیر دایرکتوری اسناد
+  final docsDir = await PathProviderMaster.getApplicationDocumentsDirectory();
+  print('📄 Documents Directory: ${docsDir?.path}');
+
+  // دریافت مسیر دایرکتوری پشتیبانی
+  final supportDir = await PathProviderMaster.getApplicationSupportDirectory();
+  print('🔧 Support Directory: ${supportDir?.path}');
+
+  // دریافت مسیر دایرکتوری دانلودها
+  final downloadsDir = await PathProviderMaster.getDownloadsDirectory();
+  print('⬇️ Downloads Directory: ${downloadsDir?.path}');
+
+  // دریافت مسیر دایرکتوری عمومی تصاویر
+  final picturesDir = await PathProviderMaster.getPublicPicturesDirectory();
+  print('🖼️ Public Pictures: ${picturesDir?.path}');
+
+  // دریافت مسیر دایرکتوری عمومی ویدیوها
+  final videosDir = await PathProviderMaster.getPublicVideosDirectory();
+  print('🎥 Public Videos: ${videosDir?.path}');
+
+  // دریافت مسیر دایرکتوری عمومی موسیقی
+  final musicDir = await PathProviderMaster.getPublicMusicDirectory();
+  print('🎵 Public Music: ${musicDir?.path}');
+
+  // دریافت لیست حافظه‌های خارجی (فقط Android)
+  final storageDirs = await PathProviderMaster.getExternalStorageDirectories();
+  if (storageDirs != null) {
+    print('💾 External Storage Directories:');
+    for (var i = 0; i < storageDirs.length; i++) {
+      print('   [$i] ${storageDirs[i].path}');
+    }
+  }
+
+  // دریافت لیست کش‌های خارجی (فقط Android)
+  final cacheDirs = await PathProviderMaster.getExternalCacheDirectories();
+  if (cacheDirs != null) {
+    print('🗑️ External Cache Directories:');
+    for (var i = 0; i < cacheDirs.length; i++) {
+      print('   [$i] ${cacheDirs[i].path}');
+    }
+  }
+
+  runApp(const SimpleApp());
+}
+
+class SimpleApp extends StatelessWidget {
+  const SimpleApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Path Provider Master - Simple Example'),
+        ),
+        body: const Center(
+          child: Text(
+            'مسیرها در کنسول چاپ شده‌اند\nCheck console for paths',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+      ),
+    );
+  }
+}
