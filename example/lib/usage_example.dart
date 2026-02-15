@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/widgets.dart';
 import 'package:path_provider_master/path_provider_master.dart';
 
 /// مثال‌های کاربردی استفاده از Path Provider Master
@@ -12,7 +13,7 @@ class PathProviderUsageExamples {
 
     final file = File('${tempDir.path}/temp_file.txt');
     await file.writeAsString(content);
-    print('✅ File saved to: ${file.path}');
+    debugPrint('✅ File saved to: ${file.path}');
     return file;
   }
 
@@ -28,7 +29,7 @@ class PathProviderUsageExamples {
 
     final file = File('${docsDir.path}/$fileName');
     await file.writeAsString(content);
-    print('✅ Document saved to: ${file.path}');
+    debugPrint('✅ Document saved to: ${file.path}');
     return file;
   }
 
@@ -39,7 +40,7 @@ class PathProviderUsageExamples {
   ) async {
     final picturesDir = await PathProviderMaster.getPublicPicturesDirectory();
     if (picturesDir == null) {
-      print('⚠️ Public pictures directory not available on this platform');
+      debugPrint('⚠️ Public pictures directory not available on this platform');
       return null;
     }
 
@@ -50,7 +51,7 @@ class PathProviderUsageExamples {
 
     final file = File('${picturesDir.path}/$fileName');
     await file.writeAsBytes(imageBytes);
-    print('✅ Image saved to: ${file.path}');
+    debugPrint('✅ Image saved to: ${file.path}');
     return file;
   }
 
@@ -61,7 +62,7 @@ class PathProviderUsageExamples {
   ) async {
     final videosDir = await PathProviderMaster.getPublicVideosDirectory();
     if (videosDir == null) {
-      print('⚠️ Public videos directory not available on this platform');
+      debugPrint('⚠️ Public videos directory not available on this platform');
       return null;
     }
 
@@ -71,7 +72,7 @@ class PathProviderUsageExamples {
 
     final file = File('${videosDir.path}/$fileName');
     await file.writeAsBytes(videoBytes);
-    print('✅ Video saved to: ${file.path}');
+    debugPrint('✅ Video saved to: ${file.path}');
     return file;
   }
 
@@ -82,7 +83,7 @@ class PathProviderUsageExamples {
   ) async {
     final downloadsDir = await PathProviderMaster.getDownloadsDirectory();
     if (downloadsDir == null) {
-      print('⚠️ Downloads directory not available on this platform');
+      debugPrint('⚠️ Downloads directory not available on this platform');
       return null;
     }
 
@@ -92,7 +93,7 @@ class PathProviderUsageExamples {
 
     final file = File('${downloadsDir.path}/$fileName');
     await file.writeAsBytes(fileBytes);
-    print('✅ File downloaded to: ${file.path}');
+    debugPrint('✅ File downloaded to: ${file.path}');
     return file;
   }
 
@@ -111,10 +112,10 @@ class PathProviderUsageExamples {
             await file.delete(recursive: true);
           }
         } catch (e) {
-          print('⚠️ Error deleting ${file.path}: $e');
+          debugPrint('⚠️ Error deleting ${file.path}: $e');
         }
       }
-      print('✅ Temp cache cleared');
+      debugPrint('✅ Temp cache cleared');
     }
   }
 
@@ -157,7 +158,7 @@ class PathProviderUsageExamples {
           try {
             totalSize += await entity.length();
           } catch (e) {
-            print('⚠️ Error reading file size: $e');
+            debugPrint('⚠️ Error reading file size: $e');
           }
         }
       }
@@ -190,13 +191,13 @@ void main() async {
 
   // دریافت اطلاعات ذخیره‌سازی
   final storageInfo = await PathProviderUsageExamples.getStorageInfo();
-  print('📊 Storage Info: $storageInfo');
+  debugPrint('📊 Storage Info: $storageInfo');
 
   // محاسبه سایز دایرکتوری موقت
   final tempDir = await PathProviderMaster.getTemporaryDirectory();
   if (tempDir != null) {
     final size = await PathProviderUsageExamples.getDirectorySize(tempDir);
-    print(
+    debugPrint(
       '📦 Temp directory size: ${PathProviderUsageExamples.formatBytes(size)}',
     );
   }

@@ -121,18 +121,18 @@ class PathProviderMasterWeb extends PathProviderMasterPlatform {
 }
 
 /// Web-specific notes:
-/// 
+///
 /// 1. All paths are virtual and map to browser storage APIs
 /// 2. Storage is limited by browser quotas (typically 50-100MB)
 /// 3. Use IndexedDB or localStorage for actual file storage
 /// 4. Downloads must use browser's download API (anchor tag with download attribute)
 /// 5. No direct access to user's file system without explicit user permission
 /// 6. Consider using File System Access API for modern browsers
-/// 
+///
 /// Example usage with IndexedDB:
 /// ```dart
 /// import 'dart:html' as html;
-/// 
+///
 /// Future<void> saveFileWeb(String path, List<int> bytes) async {
 ///   final blob = html.Blob([bytes]);
 ///   final url = html.Url.createObjectUrlFromBlob(blob);
@@ -142,11 +142,11 @@ class PathProviderMasterWeb extends PathProviderMasterPlatform {
 ///   html.Url.revokeObjectUrl(url);
 /// }
 /// ```
-/// 
+///
 /// For storage management, use the Storage API:
 /// ```dart
 /// import 'dart:html' as html;
-/// 
+///
 /// Future<void> checkStorageQuota() async {
 ///   final storage = html.window.navigator.storage;
 ///   if (storage != null) {
