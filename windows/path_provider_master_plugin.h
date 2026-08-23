@@ -20,11 +20,12 @@ class PathProviderMasterPlugin : public flutter::Plugin {
   PathProviderMasterPlugin(const PathProviderMasterPlugin&) = delete;
   PathProviderMasterPlugin& operator=(const PathProviderMasterPlugin&) = delete;
 
- private:
   // Called when a method is called on this plugin's channel from Dart.
   void HandleMethodCall(
       const flutter::MethodCall<flutter::EncodableValue> &method_call,
       std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
+
+ private:
   
   // Helper methods
   std::string GetKnownFolderPath(const GUID& folder_id);
