@@ -70,7 +70,7 @@ This plugin provides all the capabilities of `path_provider` plus additional pub
 
 ```yaml
 dependencies:
-  path_provider_master: ^1.0.2
+  path_provider_master: ^1.0.3
 ```
 
 Then run:

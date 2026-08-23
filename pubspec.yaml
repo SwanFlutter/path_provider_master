@@ -1,6 +1,6 @@
 name: path_provider_master
 description: "Flutter plugin for accessing various system paths across all platforms with support for public paths."
-version: 1.0.4
+version: 1.0.3
 homepage: "https://github.com/SwanFlutter/path_provider_master"
 
 environment:

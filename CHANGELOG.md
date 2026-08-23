@@ -1,3 +1,9 @@
+## 1.0.3
+
+* Fix bug gradle
+
+---
+
 
 ## 1.0.2
 
@@ -7,11 +13,16 @@
 - **Android — KGP version alignment**: Aligned KGP to `2.2.20` across plugin and example `settings.gradle.kts`
 - **Example — release signing**: Removed `signingConfig = signingConfigs.getByName("debug")` from release build type (not needed for testing)
 
+
+---
+
 ## 1.0.1
 
 - **WASM compatibility**: Replaced unconditional `dart:io` import with conditional import, enabling compatibility with the WASM runtime
 - **Swift Package Manager support**: Added `PrivacyInfo.xcprivacy` resource to iOS and macOS SPM targets
 - **Android built-in Kotlin**: Migrated `android/build.gradle.kts` from legacy `buildscript {}` pattern to built-in Kotlin plugin via the `plugins {}` block
+
+---
 
 ## 1.0.0
 
